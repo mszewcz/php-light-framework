@@ -105,9 +105,9 @@ final class Mcrypt
      * Extracts encryption initialization vector from base64 encoded string and returns decrypted text.
      *
      * @param string $encryptedText
-     * @return string
+     * @return mixed
      */
-    public static function decrypt($encryptedText = ''): string
+    public static function decrypt($encryptedText = '')
     {
         static::init();
 
