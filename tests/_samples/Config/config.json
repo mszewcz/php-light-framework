@@ -1,0 +1,30 @@
+{
+    "bool": true,
+    "string": "val",
+    "space1": {
+        "str": "value1",
+        "int": 1,
+        "flt": 2.44,
+        "blnT": true,
+        "blnF": false
+    },
+    "space2": {
+        "0": "nk1",
+        "1": "nk2"
+    },
+    "space3": {
+        "subspace": {
+            "subkey1": "sub;val1",
+            "subkey2": "subval2"
+        },
+        "subspace2": {
+            "subkey1": "subval1",
+            "subkey2": "subval2"
+        }
+    },
+    "space4": {
+        "html": "\u003Cb\u003Eval\u003C/b\u003E",
+        "utf": "\u0142\u0105\u015b\u0107\u017a",
+        "special": "\u0026\u0027\u0022"
+    }
+}

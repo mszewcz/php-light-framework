@@ -1,0 +1,26 @@
+{
+    "name": "mszewcz/php-light-framework",
+    "description": "Light PHP 7.1 framework",
+    "keywords": ["php light framework", "php", "framework", "helpers", "mysql", "filesystem", "variables"],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Michał Szewczyk",
+            "email": "ms@msworks.pl"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=7.1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.3",
+        "codacy/coverage": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "MS\\LightFramework\\": "src/"
+        }
+    }
+}

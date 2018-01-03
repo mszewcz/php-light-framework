@@ -1,0 +1,5 @@
+/build/
+/tmp/
+/vendor/
+_mcrypt.hash
+composer.lock

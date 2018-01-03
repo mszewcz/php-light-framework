@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <bool>true</bool>
+    <string>val</string>
+    <space1>
+        <str>value1</str>
+        <int>1</int>
+        <flt>2.44</flt>
+        <blnT>true</blnT>
+        <blnF>false</blnF>
+    </space1>
+    <space2>
+        <num__0>nk1</num__0>
+        <num__1>nk2</num__1>
+    </space2>
+    <space3>
+        <subspace>
+            <subkey1>sub;val1</subkey1>
+            <subkey2>subval2</subkey2>
+        </subspace>
+        <subspace2>
+            <subkey1>subval1</subkey1>
+            <subkey2>subval2</subkey2>
+        </subspace2>
+    </space3>
+    <space4>
+        <html>&lt;b&gt;val&lt;/b&gt;</html>
+        <utf>łąśćź</utf>
+        <special>&amp;'&quot;</special>
+    </space4>
+</config>
