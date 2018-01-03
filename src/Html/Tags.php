@@ -174,11 +174,13 @@ class Tags
             if ($hasContent === true && \count($arguments) == 2) {
                 return \is_array($arguments[1]) ? $arguments[1] : [];
             }
-            if (\count($arguments) == 2) {
-                return \is_array($arguments[1]) ? $arguments[1] : [];
-            }
-            if (\count($arguments) == 1) {
-                return \is_array($arguments[0]) ? $arguments[0] : [];
+            if ($hasContent === false) {
+                if (\count($arguments) == 2) {
+                    return \is_array($arguments[1]) ? $arguments[1] : [];
+                }
+                if (\count($arguments) == 1) {
+                    return \is_array($arguments[0]) ? $arguments[0] : [];
+                }
             }
         }
         return [];
@@ -273,7 +275,7 @@ class Tags
             $newLine = static::CRLF;
         }
 
-        if ($hasValue === true && trim($tagValue) !== '') {
+        if ($hasValue === true) {
             return \sprintf(
                 '<%s%s>%s%s%s</%s>%s',
                 $tagName,

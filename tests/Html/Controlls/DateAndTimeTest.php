@@ -18,7 +18,7 @@ class DateAndTimeTest extends TestCase
 
     public function testInputTimestamp()
     {
-        $expected = '<div class="timestamp-controll cf"><input type="text" name="MFVARS[test_date]" value="" id="test_date" class="date"/><input type="text" name="MFVARS[test_time]" value="" id="test_time" class="time"/><span class="timestamp-reset" title="TXT_PANEL_DATA_FORM_TIMESTAMP_CONTROLL_RESET"/></div>';
+        $expected = '<div class="timestamp-controll cf"><input type="text" name="MFVARS[test_date]" value="" id="test_date" class="date"/><input type="text" name="MFVARS[test_time]" value="" id="test_time" class="time"/><span class="timestamp-reset" title="TXT_PANEL_DATA_FORM_TIMESTAMP_CONTROLL_RESET"></span></div>';
         $this->assertEquals($expected, DateAndTime::inputTimestamp('test', 0, ['class' => 'testclass']));
     }
 
@@ -289,7 +289,7 @@ class DateAndTimeTest extends TestCase
         $expected .= '<option value="58" class="opt-58">58</option>'.Tags::CRLF;
         $expected .= '<option value="59" class="opt-59">59</option>'.Tags::CRLF;
         $expected .= '</select></div>';
-        $expected .= '<span class="timestamp-reset" title="TXT_PANEL_DATA_FORM_TIMESTAMP_CONTROLL_RESET"/></div>';
+        $expected .= '<span class="timestamp-reset" title="TXT_PANEL_DATA_FORM_TIMESTAMP_CONTROLL_RESET"></span></div>';
         $this->assertEquals($expected, DateAndTime::selectTimestamp('test', 0, ['class' => 'testclass']));
     }
 
@@ -559,7 +559,7 @@ class DateAndTimeTest extends TestCase
         $expected .= '<option value="58" class="opt-58">58</option>'.Tags::CRLF;
         $expected .= '<option value="59" class="opt-59">59</option>'.Tags::CRLF;
         $expected .= '</select></div>';
-        $expected .= '<span class="timestamp-reset" title="TXT_PANEL_DATA_FORM_TIMESTAMP_CONTROLL_RESET"/></div>';
+        $expected .= '<span class="timestamp-reset" title="TXT_PANEL_DATA_FORM_TIMESTAMP_CONTROLL_RESET"></span></div>';
 
         $this->assertEquals($expected, DateAndTime::selectTimestamp('test', ['y' => 1978, 'm' => 4, 'd' => 15, 'h' => 4, 'i' => 20, 's' => 0], ['class' => 'testclass']));
         $this->assertEquals($expected, DateAndTime::selectTimestamp('test', mktime(4, 20, 0, 4, 15, 1978), ['class' => 'testclass']));

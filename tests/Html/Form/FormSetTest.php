@@ -61,8 +61,8 @@ class FormSetTest extends TestCase
         $expected = '<div data-set-id="set-1" class="set">'.Tags::CRLF;
         $expected .= '<div class="title cf">'.Tags::CRLF;
         $expected .= '<span class="name">set1</span>'.Tags::CRLF;
-        $expected .= '<span class="expand" title="TXT_PANEL_DATA_FORM_SET_EXPAND"/>'.Tags::CRLF;
-        $expected .= '<span class="collapse" title="TXT_PANEL_DATA_FORM_SET_COLLAPSE"/>'.Tags::CRLF;
+        $expected .= '<span class="expand" title="TXT_PANEL_DATA_FORM_SET_EXPAND"></span>'.Tags::CRLF;
+        $expected .= '<span class="collapse" title="TXT_PANEL_DATA_FORM_SET_COLLAPSE"></span>'.Tags::CRLF;
         $expected .= '<input type="hidden" name="set-1_state" value="0"/>'.Tags::CRLF;
         $expected .= '</div>'.Tags::CRLF;
         $expected .= '<div class="content border-radius-5">'.Tags::CRLF;
