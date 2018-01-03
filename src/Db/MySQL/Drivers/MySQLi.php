@@ -199,7 +199,7 @@ final class MySQLi extends AbstractMySQL
      */
     public function escape($value = ''): string
     {
-        return \sprintf('"%s"', $this->currentLink->real_escape_string($value));
+        return \sprintf('"%s"', $this->currentLink->real_escape_string((string)$value));
     }
 
     /**

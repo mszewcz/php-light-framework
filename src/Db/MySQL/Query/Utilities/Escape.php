@@ -66,7 +66,7 @@ final class Escape
         }
 
         foreach ($this->doNotEscape as $doNotEscape) {
-            if (\preg_match('/^'.\str_replace('*', '\\*', $doNotEscape).'/i', $value)) {
+            if (\preg_match('/^'.\str_replace('*', '\\*', $doNotEscape).'/i', (string)$value)) {
                 return $value;
             }
         }
