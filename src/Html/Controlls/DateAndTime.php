@@ -108,11 +108,11 @@ final class DateAndTime extends AbstractControlls
      * Returns timestamp controll (date & time inputs)
      *
      * @param string $name
-     * @param int    $value
+     * @param mixed  $value
      * @param array  $attributes
      * @return string
      */
-    public static function inputTimestamp(string $name = '', int $value = 0, array $attributes = []): string
+    public static function inputTimestamp(string $name = '', $value = 0, array $attributes = []): string
     {
         $defaultAttributes = ['method-get' => false, 'time-controll' => true];
         $userAttributes = \array_merge($defaultAttributes, $attributes);
