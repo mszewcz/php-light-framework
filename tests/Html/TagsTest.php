@@ -587,13 +587,13 @@ class TagsTest extends TestCase
 
     public function testTable()
     {
-        $expected = '<table class="test" cellpadding="0" cellspacing="0" border="0"/>';
+        $expected = '<table class="test" cellpadding="0" cellspacing="0" border="0">'.Tags::CRLF.Tags::CRLF.'</table>'.Tags::CRLF;
         $this->assertEquals($expected, Tags::table([], ['class' => 'test', 'align' => 'left', 'bgcolor' => '#fff']));
     }
 
     public function testTbody()
     {
-        $expected = '<tbody class="test"/>';
+        $expected = '<tbody class="test">'.Tags::CRLF.Tags::CRLF.'</tbody>'.Tags::CRLF;
         $this->assertEquals($expected, Tags::tbody([], ['class' => 'test']));
     }
 
@@ -611,7 +611,7 @@ class TagsTest extends TestCase
 
     public function testTfoot()
     {
-        $expected = '<tfoot class="test"/>';
+        $expected = '<tfoot class="test">'.Tags::CRLF.Tags::CRLF.'</tfoot>'.Tags::CRLF;
         $this->assertEquals($expected, Tags::tfoot([], ['class' => 'test']));
     }
 
@@ -623,7 +623,7 @@ class TagsTest extends TestCase
 
     public function testThead()
     {
-        $expected = '<thead class="test"/>';
+        $expected = '<thead class="test">'.Tags::CRLF.Tags::CRLF.'</thead>'.Tags::CRLF;
         $this->assertEquals($expected, Tags::thead([], ['class' => 'test']));
     }
 
@@ -641,7 +641,7 @@ class TagsTest extends TestCase
 
     public function testTr()
     {
-        $expected = '<tr class="test"/>';
+        $expected = '<tr class="test">'.Tags::CRLF.Tags::CRLF.'</tr>'.Tags::CRLF;
         $this->assertEquals($expected, Tags::tr([], ['class' => 'test']));
     }
 
@@ -659,7 +659,7 @@ class TagsTest extends TestCase
 
     public function testUl()
     {
-        $expected = '<ul class="test"/>';
+        $expected = '<ul class="test">'.Tags::CRLF.Tags::CRLF.'</ul>'.Tags::CRLF;
         $this->assertEquals($expected, Tags::ul([], ['class' => 'test']));
     }
 
