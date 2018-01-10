@@ -35,7 +35,7 @@ final class Buttons extends AbstractControlls
         $attributes = [];
         $attributes['type'] = 'button';
         $attributes['name'] = $userAttributes['method-get'] === false ? \sprintf('MFVARS[%s]', $name) : $name;
-        $attributes['value'] = \htmlspecialchars($value);
+        $attributes['value'] = \htmlspecialchars((string)$value);
         $attributes['id'] = isset($userAttributes['id']) ? $userAttributes['id'] : $name;
         $userAttributes = static::clearAttributes($userAttributes, ['method-get', 'id']);
 
@@ -57,7 +57,7 @@ final class Buttons extends AbstractControlls
         $attributes = [];
         $attributes['type'] = 'submit';
         $attributes['name'] = $userAttributes['method-get'] === false ? \sprintf('MFVARS[%s]', $name) : $name;
-        $attributes['value'] = \htmlspecialchars($value);
+        $attributes['value'] = \htmlspecialchars((string)$value);
         $attributes['id'] = isset($userAttributes['id']) ? $userAttributes['id'] : $name;
         $userAttributes = static::clearAttributes($userAttributes, ['method-get', 'id']);
 
@@ -79,7 +79,7 @@ final class Buttons extends AbstractControlls
         $attributes = [];
         $attributes['type'] = 'reset';
         $attributes['name'] = $userAttributes['method-get'] === false ? \sprintf('MFVARS[%s]', $name) : $name;
-        $attributes['value'] = \htmlspecialchars($value);
+        $attributes['value'] = \htmlspecialchars((string)$value);
         $attributes['id'] = isset($userAttributes['id']) ? $userAttributes['id'] : $name;
         $userAttributes = static::clearAttributes($userAttributes, ['method-get', 'id']);
 

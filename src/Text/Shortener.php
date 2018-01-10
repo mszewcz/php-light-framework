@@ -33,7 +33,7 @@ class Shortener
                                    string $suffix = '...'): string
     {
         $text = StripTags::strip($text);
-        $text = \htmlspecialchars_decode($text, ENT_COMPAT | ENT_HTML5);
+        $text = \htmlspecialchars_decode((string)$text, ENT_COMPAT | ENT_HTML5);
         $text = \trim(\preg_replace('/\s+/', ' ', $text));
 
         if ($charCount === null || \mb_strlen($text, 'UTF-8') <= $charCount) {

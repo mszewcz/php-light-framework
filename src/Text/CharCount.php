@@ -31,7 +31,7 @@ class CharCount
             return 0;
         }
         $text = StripTags::strip($text);
-        $text = \htmlspecialchars_decode($text, ENT_COMPAT | ENT_HTML5);
+        $text = \htmlspecialchars_decode((string)$text, ENT_COMPAT | ENT_HTML5);
         $text = \preg_replace('/\s+/', $includeSpaces ? ' ' : '', $text);
         $text = \trim($text);
 
