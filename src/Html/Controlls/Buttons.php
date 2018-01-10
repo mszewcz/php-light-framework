@@ -24,11 +24,11 @@ final class Buttons extends AbstractControlls
      * This method returns <input type="button"> controll
      *
      * @param string $name
-     * @param string $value
+     * @param mixed  $value
      * @param array  $attributes
      * @return string
      */
-    public static function button(string $name = '', string $value = '', array $attributes = []): string
+    public static function button(string $name = '', $value = '', array $attributes = []): string
     {
         $defaultAttributes = ['method-get' => false, 'class' => 'formButton'];
         $userAttributes = \array_merge($defaultAttributes, $attributes);
@@ -46,11 +46,11 @@ final class Buttons extends AbstractControlls
      * This method returns <input type="submit"> controll
      *
      * @param string $name
-     * @param string $value
+     * @param mixed  $value
      * @param array  $attributes
      * @return string
      */
-    public static function buttonSubmit(string $name = '', string $value = '', array $attributes = []): string
+    public static function buttonSubmit(string $name = '', $value = '', array $attributes = []): string
     {
         $defaultAttributes = ['method-get' => false, 'class' => 'formButton'];
         $userAttributes = \array_merge($defaultAttributes, $attributes);
@@ -68,11 +68,11 @@ final class Buttons extends AbstractControlls
      * This method returns <input type="reset"> controll
      *
      * @param string $name
-     * @param string $value
+     * @param mixed  $value
      * @param array  $attributes
      * @return string
      */
-    public static function buttonReset(string $name = '', string $value = '', array $attributes = []): string
+    public static function buttonReset(string $name = '', $value = '', array $attributes = []): string
     {
         $defaultAttributes = ['method-get' => false, 'class' => 'formButton'];
         $userAttributes = \array_merge($defaultAttributes, $attributes);
