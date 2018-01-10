@@ -54,12 +54,12 @@ final class Choice extends AbstractControlls
      * Returns <input type="checkbox"> controll
      *
      * @param string $name
-     * @param string $value
+     * @param mixed  $value
      * @param bool   $checked
      * @param array  $attributes
      * @return string
      */
-    public static function inputCheckbox(string $name = '', string $value = '', bool $checked = false,
+    public static function inputCheckbox(string $name = '', $value = '', bool $checked = false,
                                          array $attributes = []): string
     {
         $defaultAttributes = ['method-get' => false, 'class' => 'form-checkbox'];
