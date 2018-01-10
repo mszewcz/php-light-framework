@@ -46,11 +46,11 @@ final class Text extends AbstractControlls
      * This method returns <input type="password"> controll
      *
      * @param string $name
-     * @param string $value
+     * @param mixed  $value
      * @param array  $attributes
      * @return string
      */
-    public static function inputPassword(string $name = '', string $value = '', array $attributes = []): string
+    public static function inputPassword(string $name = '', $value = '', array $attributes = []): string
     {
         $defaultAttributes = ['method-get' => false, 'autocomplete' => 'off', 'class' => 'form-input'];
         $userAttributes = \array_merge($defaultAttributes, $attributes);
@@ -68,11 +68,11 @@ final class Text extends AbstractControlls
      * This method returns <input type="text"> controll
      *
      * @param string $name
-     * @param string $value
+     * @param mixed  $value
      * @param array  $attributes
      * @return string
      */
-    public static function inputText(string $name = '', string $value = '', array $attributes = []): string
+    public static function inputText(string $name = '', $value = '', array $attributes = []): string
     {
         $defaultAttributes = ['method-get' => false, 'class' => 'form-input'];
         $userAttributes = \array_merge($defaultAttributes, $attributes);
@@ -90,13 +90,13 @@ final class Text extends AbstractControlls
      * This method returns textarea controll
      *
      * @param string $name
-     * @param string $value
+     * @param mixed  $value
      * @param array  $attributes
      * @return string
      */
-    public static function textarea(string $name = '', string $value = '', array $attributes = []): string
+    public static function textarea(string $name = '', $value = '', array $attributes = []): string
     {
-        $defaultAttributes = ['method-get' => false, 'cols' => 20, 'rows' => 4, 'class' => 'form-textarea'];
+        $defaultAttributes = ['method-get' => false, 'cols' => 20, 'rows' => 40, 'class' => 'form-textarea'];
         $userAttributes = \array_merge($defaultAttributes, $attributes);
         $attributes = [];
         $attributes['name'] = $userAttributes['method-get'] === false ? \sprintf('MFVARS[%s]', $name) : $name;
