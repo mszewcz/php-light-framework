@@ -31,7 +31,7 @@ class WordCount
             return 0;
         }
         $text = StripTags::strip($text);
-        $text = \htmlspecialchars_decode($text, ENT_COMPAT | ENT_HTML5);
+        $text = \htmlspecialchars_decode((string)$text, ENT_COMPAT | ENT_HTML5);
         $text = \preg_replace('/[^\w[:space:]]/u', '', $text);
         if ($minWorldLength > 1) {
             $text = \preg_replace('/(\b\w{1,'.($minWorldLength - 1).'}\b)/u', ' ', $text);

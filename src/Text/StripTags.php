@@ -21,13 +21,13 @@ class StripTags
     /**
      * Strips tags from text. Preserves allowed tags.
      *
-     * @param string $text
+     * @param mixed  $text
      * @param array  $allowedTags
      * @return string
      */
-    public static function strip(string $text = '', array $allowedTags = []): string
+    public static function strip($text = '', array $allowedTags = []): string
     {
-        $text = \htmlspecialchars_decode($text, ENT_COMPAT | ENT_HTML5);
+        $text = \htmlspecialchars_decode((string)$text, ENT_COMPAT | ENT_HTML5);
         foreach ($allowedTags as $tag) {
             $text = \preg_replace('|<(/?'.$tag.'\ ?/?)>|i', '{{{{\\1}}}}', $text);
             $text = \preg_replace('|<('.$tag.' [^>]+)>|i', '{{{{\\1}}}}', $text);
