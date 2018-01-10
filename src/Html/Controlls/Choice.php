@@ -37,7 +37,7 @@ final class Choice extends AbstractControlls
         $attributes = [];
         $attributes['type'] = 'radio';
         $attributes['name'] = $userAttributes['method-get'] === false ? \sprintf('MFVARS[%s]', $name) : $name;
-        $attributes['value'] = \htmlspecialchars($value);
+        $attributes['value'] = \htmlspecialchars((string)$value);
         $attributes['id'] = isset($userAttributes['id'])
             ? $userAttributes['id']
             : \sprintf('rb_%s_%s', $name, $value);
@@ -67,7 +67,7 @@ final class Choice extends AbstractControlls
         $attributes = [];
         $attributes['type'] = 'checkbox';
         $attributes['name'] = $userAttributes['method-get'] === false ? \sprintf('MFVARS[%s]', $name) : $name;
-        $attributes['value'] = \htmlspecialchars($value);
+        $attributes['value'] = \htmlspecialchars((string)$value);
         $attributes['id'] = isset($userAttributes['id']) ? $userAttributes['id'] : \sprintf('cb_%s', $name);
 
         if (\array_key_exists('multiple', $userAttributes) && $userAttributes['multiple'] === true) {
@@ -97,7 +97,7 @@ final class Choice extends AbstractControlls
         $options = [];
         foreach ($values as $k => $v) {
             if (\strpos((string)$k, 'OPTGROUP') !== false) {
-                $label = \str_replace(['&amp;nbsp;', '&amp;'], [Tags::NBSP, '&'], \htmlspecialchars($v['name']));
+                $label = \str_replace(['&amp;nbsp;', '&amp;'], [Tags::NBSP, '&'], \htmlspecialchars((string)$v['name']));
                 $optAttributes = ['label' => $label];
                 if ($level > 0) {
                     $optAttributes['style'] = 'padding-left: '.(10 * $level).'px';
