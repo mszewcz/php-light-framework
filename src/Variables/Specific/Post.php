@@ -79,7 +79,7 @@ final class Post extends AbstractReadOnly
             return $this->cast($this->variables['MFVARS'][$variableName], $type);
         }
         if (isset($this->variables[$variableName])) {
-            return $this->cast($this->variables[$variableName]);
+            return $this->cast($this->variables[$variableName], $type);
         }
         return $this->cast(null, $type);
     }
