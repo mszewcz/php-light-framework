@@ -10,7 +10,6 @@ declare(strict_types=1);
 
 namespace MS\LightFramework\Session\Backend;
 
-use MS\LightFramework\Encryption\Mcrypt;
 use MS\LightFramework\Filesystem\Directory;
 
 
@@ -64,7 +63,7 @@ final class Filesystem implements \SessionHandlerInterface
                 $sessionData = $fileSize == 0 ? '' : @\fread($handle, $fileSize);
                 @\flock($handle, LOCK_UN);
                 @\fclose($handle);
-                return Mcrypt::decrypt($sessionData);
+                return $sessionData;
             }
         }
         return '';
@@ -80,7 +79,6 @@ final class Filesystem implements \SessionHandlerInterface
     public function write($sessionID, $sessionData): bool
     {
         $result = false;
-        $sessionData = Mcrypt::encrypt($sessionData);
         $file = $this->savePath.DIRECTORY_SEPARATOR.'sess_'.$sessionID;
         $handle = @\fopen($file, 'wb');
         if ($handle) {

@@ -35,7 +35,7 @@ class TextTest extends TestCase
 
     public function testTextarea()
     {
-        $expected = '<textarea name="MFVARS[test]" id="test" cols="20" rows="4" class="testclass">text</textarea>';
+        $expected = '<textarea name="MFVARS[test]" id="test" cols="20" rows="40" class="testclass">text</textarea>';
         $this->assertEquals($expected, Text::textarea('test', 'text', ['class' => 'testclass']));
     }
 }

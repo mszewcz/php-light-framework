@@ -11,7 +11,6 @@ declare(strict_types=1);
 namespace MS\LightFramework\Variables\Specific;
 
 use MS\LightFramework\Base;
-use MS\LightFramework\Encryption\Mcrypt;
 use MS\LightFramework\Exceptions\BadMethodCallException;
 use MS\LightFramework\Exceptions\RuntimeException;
 use MS\LightFramework\Variables\Variables;
@@ -50,7 +49,7 @@ final class Cookie extends AbstractWritableCookie
         $this->setDomain($baseClass->getServerName(), true);
 
         foreach ($_COOKIE as $k => $v) {
-            $this->variables[$k] = Mcrypt::decrypt($v);
+            $this->variables[$k] = $v;
         }
     }
 
@@ -138,7 +137,7 @@ final class Cookie extends AbstractWritableCookie
 
         \setcookie(
             $variableName,
-            $encrypted === true ? Mcrypt::encrypt($variableValue) : $variableValue,
+            $encrypted === true ? $variableValue : $variableValue,
             $this->getExpireTime($expires),
             $this->getPath(),
             $this->getDomain(),
@@ -164,7 +163,7 @@ final class Cookie extends AbstractWritableCookie
 
         \setcookie(
             $variableName,
-            Mcrypt::encrypt(''),
+            '',
             \time() - 1,
             $this->getPath(),
             $this->getDomain(),

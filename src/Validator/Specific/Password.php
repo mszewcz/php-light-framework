@@ -40,7 +40,6 @@ final class Password extends AbstractSpecific
         'require-different-than-previous-all' => false,
         'special-character-pattern'           => '[\`\!\@\#\$\%\^\&\*\(\)\_\+\-\=\{\}\[\]\\\:\"\;\'\,\.\/\<\>\?]',
         'stored-passwords'                    => [],
-        'stored-salt'                         => '',
     ];
 
     /**
@@ -158,8 +157,8 @@ final class Password extends AbstractSpecific
     {
         if ($this->options['require-different-than-previous-one'] === true) {
             if (isset($this->options['stored-passwords'][0])) {
-                $passwordHash = PasswordEnctyption::hash((string)$this->value, $this->options['stored-salt']);
-                if ($passwordHash['password'] === $this->options['stored-passwords'][0]) {
+                $passwordHash = (string)$this->value;
+                if (PasswordEnctyption::compare($passwordHash, $this->options['stored-passwords'][0])) {
                     $this->setError(self::VALIDATOR_ERROR_PASSWORD_MUST_BE_DIFFERENT_THAN_PREVIOUS_ONE);
                     return false;
                 }
@@ -176,9 +175,9 @@ final class Password extends AbstractSpecific
     private function validateDifferentPreviousAll(): bool
     {
         if ($this->options['require-different-than-previous-all'] === true) {
-            $passwordHash = PasswordEnctyption::hash((string)$this->value, $this->options['stored-salt']);
+            $passwordHash = (string)$this->value;
             foreach ($this->options['stored-passwords'] as $storedPassword) {
-                if ($passwordHash['password'] === $storedPassword) {
+                if (PasswordEnctyption::compare($passwordHash, $storedPassword)) {
                     $this->setError(self::VALIDATOR_ERROR_PASSWORD_MUST_BE_DIFFERENT_THAN_PREVIOUS_ALL);
                     return false;
                 }

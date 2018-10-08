@@ -12,7 +12,6 @@ namespace MS\LightFramework;
 
 use MS\LightFramework\Config\AbstractConfig;
 use MS\LightFramework\Config\Factory;
-use MS\LightFramework\Random\Random;
 
 
 /**
@@ -63,8 +62,6 @@ final class Base
         $this->requestUri = \trim($requestUri);
         $this->referer = \trim($referer);
         $this->config = Factory::read($_ENV['CONFIG_FILE_FRAMEWORK']);
-
-        $this->createMcryptHashFile();
     }
 
     /**
@@ -154,21 +151,5 @@ final class Base
     public function getReferer(): string
     {
         return $this->referer;
-    }
-
-    /**
-     * Creates file with random hash, that will be used for mcrypt key creation
-     */
-    private function createMcryptHashFile(): void
-    {
-        if (($hashFile = $this->parsePath($this->config->Encryption->Mcrypt->hashFile)) !== null
-            && !\file_exists($hashFile)) {
-
-            $hash = '';
-            for ($i = 0; $i < 8; $i++) {
-                $hash .= Random::hash();
-            }
-            \file_put_contents($hashFile, $hash, LOCK_EX);
-        }
     }
 }
