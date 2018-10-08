@@ -11,7 +11,6 @@ declare(strict_types=1);
 namespace MS\LightFramework\Session\Backend;
 
 use MS\LightFramework\Db\MySQL as MySQLCLass;
-use MS\LightFramework\Encryption\Mcrypt;
 
 
 /**
@@ -62,7 +61,7 @@ final class MySQL implements \SessionHandlerInterface
         $result = $this->dbClass->execute($query);
         $data = $this->dbClass->rowCount() > 0 ? $result[0]['session_data'] : '';
 
-        return Mcrypt::decrypt($data);
+        return $data;
     }
 
     /**
@@ -74,7 +73,6 @@ final class MySQL implements \SessionHandlerInterface
      */
     public function write($sessionID, $sessionData): bool
     {
-        $sessionData = Mcrypt::encrypt($sessionData);
         $dbData = ['session_id' => $sessionID, 'session_access_ts' => time(), 'session_data' => $sessionData];
         $query = $this->dbClass->prepare()->replaceInto($this->dbTable)->set($dbData);
         $result = $this->dbClass->execute($query) == 1 ? true : false;

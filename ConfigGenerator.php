@@ -17,20 +17,6 @@ $frameworkConfig = [
             'errorLevel'        => 'exception',
         ],
     ],
-    'Encryption' => [
-        'Mcrypt'   => [
-            'hashFile'     => '%DOCUMENT_ROOT%/src/_mcrypt.hash',
-            'cipher'       => 'MCRYPT_BLOWFISH',
-            'mode'         => 'MCRYPT_MODE_CBC',
-            'randomSource' => 'MCRYPT_DEV_URANDOM',
-        ],
-        'Password' => [
-            'cryptBlowfishSaltPattern' => '$2y$10$%s',
-            'cryptSha512SaltPattern'   => '$6$rounds=100000$%s$',
-            'cryptSha256SaltPattern'   => '$5$rounds=100000$%s$',
-            'md5Pattern'               => '%s%s%s',
-        ],
-    ],
     'Filesystem' => [
         'newDirectoryMode'       => '740',
         'newFileMode'            => '740',
