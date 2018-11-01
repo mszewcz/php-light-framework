@@ -58,6 +58,9 @@ final class Escape
     {
         $this->doNotEscape = \array_unique(\array_merge($this->doNotEscape, $doNotEscape));
 
+        if (\is_null($value)) {
+            return 'NULL';
+        }
         if (\is_int($value) || \is_float($value)) {
             return $value;
         }
