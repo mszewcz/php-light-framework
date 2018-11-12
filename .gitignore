@@ -1,5 +1,6 @@
 /.idea/
 /build/
 /tmp/
+/tools/
 /vendor/
 composer.lock

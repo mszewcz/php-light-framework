@@ -22,5 +22,13 @@
         "psr-4": {
             "MS\\LightFramework\\": "src/"
         }
+    },
+    "scripts": {
+        "deploy": [
+            "@php tools/deploy.php"
+        ],
+        "version": [
+            "@php tools/version.php"
+        ]
     }
 }
