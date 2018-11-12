@@ -19,8 +19,8 @@ namespace MS\LightFramework\Db\MySQL\Query\Utilities;
 final class Condition
 {
     private $escapeClass;
-    private $operatorsFrom = ['$lte', '$lt', '$eq', '$ne', '$gte', '$gt'];
-    private $operatorsTo = ['<=', '<', '=', '!=', '>=', '>'];
+    private $operatorsFrom = ['$lte', '$lt', '$eq', '$ne', '$gte', '$gt', '$is'];
+    private $operatorsTo = ['<=', '<', '=', '!=', '>=', '>', ' IS '];
 
     /**
      * Condition constructor.
