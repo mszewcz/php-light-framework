@@ -56,6 +56,8 @@ final class Condition
             } elseif ($operator == '$nin' && \is_array($value)) {
                 $value = \array_map([$this->escapeClass, 'escape'], $value);
                 $ret[] = \sprintf('%s NOT IN (%s)', $variable, \implode(',', $value));
+            } elseif ($operator == '$nin' && $value instanceof \MS\LightFramework\Db\MySQL\Query\Select) {
+                $ret[] = \sprintf('%s NOT IN (%s)', $variable, $value->___build());
             } elseif ($operator == '$nin' && \is_string($value)) {
                 $value = $this->escapeClass->escape($value);
                 $ret[] = \sprintf('%s NOT IN (%s)', $variable, $value);
