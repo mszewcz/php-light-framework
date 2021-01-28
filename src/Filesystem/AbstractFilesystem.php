@@ -42,7 +42,7 @@ abstract class AbstractFilesystem
             static::$writeLocks = (boolean)$baseClass->Filesystem->writeLocks;
             static::$hashFileDir = $baseClass->parsePath((string)$baseClass->Filesystem->hashFileDirectory);
             static::$hashFileDirDepth = (int)$baseClass->Filesystem->hashFileDirectoryDepth;
-            static::$documentRoot = $baseClass->parsePath('%DOCUMENT_ROOT%').DIRECTORY_SEPARATOR;
+            static::$documentRoot = $baseClass->parsePath('%DOCUMENT_ROOT%');
         }
     }
 
