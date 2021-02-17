@@ -27,6 +27,7 @@ final class Insert implements QueryInterface
     private $escapeClass;
     private $fields = [];
     private $into = [];
+    private $ignore = '';
 
     /**
      * Insert constructor.
@@ -43,6 +44,7 @@ final class Insert implements QueryInterface
         $this->namesClass->addAliases(\array_keys($fields));
         $this->escapeClass = new Escape();
         $this->fields = $fields;
+        $this->ignore = $ignore;
     }
 
     /**
@@ -63,6 +65,16 @@ final class Insert implements QueryInterface
     }
 
     /**
+     * Supporting INSERT IGNORE query
+     * @return Insert
+     */
+    public function withIgnore(): Insert
+    {
+        $this->ignore = ' IGNORE';
+        return $this;
+    }
+
+    /**
      * Builds query and returns it.
      *
      * @return string
@@ -75,6 +87,6 @@ final class Insert implements QueryInterface
         $fields = \implode(',', \array_keys($this->fields));
         $values = \implode(',', \array_map([$this->escapeClass, 'escape'], \array_values($this->fields)));
 
-        return \sprintf('INSERT INTO %s (%s) VALUES (%s)', $tables, $fields, $values);
+        return \sprintf('INSERT'.$this->ignore.' INTO %s (%s) VALUES (%s)', $tables, $fields, $values);
     }
 }
