@@ -82,9 +82,13 @@ final class Condition
             if (\is_int($key) && \is_array($val)) {
                 $ret[] = $this->parse($val, $logicalOperator);
             } elseif (\is_string($key) && \is_array($val)) {
-                $ret[] = \preg_match('/^\$or[0-9]*$/', $key)
-                    ? \sprintf('(%s)', $this->parse($val, ' OR '))
-                    : $this->parseExpression($key, $val, $logicalOperator);
+                if(\preg_match('/^\$or[0-9]*$/', $key)) {
+                    $ret[] = \sprintf('(%s)', $this->parse($val, ' OR '));
+                } elseif(\preg_match('/^\$and[0-9]*$/', $key)) {
+                    $ret[] = \sprintf('(%s)', $this->parse($val, ' AND '));
+                } else {
+                    $ret[] = $this->parseExpression($key, $val, $logicalOperator);
+                }
             } elseif (\is_string($key) && \in_array(gettype($val), ['integer', 'double', 'string'])) {
                 $ret[] = \sprintf('%s=%s', $key, $this->escapeClass->escape($val));
             }
